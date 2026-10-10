@@ -1,0 +1,26 @@
+[project]
+name = "llm-animal-experiment"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Daniel Mewes", email = "mail@dmewes.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "google-genai>=2.29.0",
+    "python-dotenv>=1.2.4",
+    "scipy>=1.18.1",
+]
+
+[project.scripts]
+llm-animal-experiment = "llm_animal_experiment:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
