@@ -114,3 +114,25 @@ def test_extract_thoughts_separates_summary_from_answer():
     ]))])
     assert extract_thoughts(resp) == "I'll pick the bee."
     assert extract_thoughts(NS(text="x")) == ""
+
+
+def test_anthropic_chat_keeps_history_and_extracts_thoughts():
+    from types import SimpleNamespace as NS
+    from llm_animal_experiment.experiment import AnthropicChat, infer_provider
+
+    calls = []
+
+    class _Messages:
+        def create(self, **kwargs):
+            calls.append(len(kwargs["messages"]))
+            return NS(content=[NS(type="thinking", thinking="hmm"), NS(type="text", text="No")])
+
+    chat = AnthropicChat(NS(messages=_Messages()), "claude-x", thinking_level="low")
+    r1 = chat.send_message("a")
+    chat.send_message("b")
+    assert (r1.text, r1.thoughts) == ("No", "hmm")
+    assert calls == [1, 3]
+    assert chat.kwargs["thinking"] == {"type": "adaptive", "display": "summarized"}
+    assert chat.kwargs["output_config"] == {"effort": "low"}
+    assert infer_provider("claude-sonnet-5-5") == "anthropic"
+    assert infer_provider("gemini-3.8-flash") == "gemini"

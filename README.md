@@ -35,6 +35,11 @@ Or set the environment variable:
 ```bash
 export GEMINI_API_KEY="your-gemini-api-key-here"
 ```
+For Claude models, set `ANTHROPIC_API_KEY` instead (models whose name starts with `claude` use the Anthropic API automatically):
+```bash
+export ANTHROPIC_API_KEY="your-anthropic-api-key-here"
+uv run llm-animal-experiment --model claude-sonnet-5-5 --trials 20
+```
 
 ### 2. Running the Experiment
 
@@ -58,12 +63,12 @@ uv run llm-animal-experiment --mock --trials 20
 | Option | Flag | Default | Description |
 |---|---|---|---|
 | `--trials` | `-n` | `10` | Number of experiment trials |
-| `--model` | `-m` | `gemini-3.8-flash` | Gemini model name |
+| `--model` | `-m` | `gemini-3.8-flash` | Model name (`claude*` uses the Anthropic API) |
+| `--provider` | | inferred | `gemini` or `anthropic` (default: inferred from model name) |
 | `--confidence` | `-c` | `0.95` | Confidence level for hypothesis test (e.g. `0.95`, `0.99`) |
-| `--temperature` | `-t` | None | Sampling temperature |
 | `--set-expectations` | | `False` | Append a sentence to the initial prompt saying a random pick shouldn't be guessed right on the first try |
 | `--be-honest` | | `False` | Append " Be honest!" to the initial prompt |
-| `--thinking-level` | | None | Thinking level: `minimal`, `low`, `medium`, `high` (Gemini 3 models) |
+| `--thinking-level` | | None | Thinking level: `minimal`, `low`, `medium`, `high` (Gemini 3 models; for Claude it enables adaptive thinking with summaries and sets `output_config.effort` to the same level, with `minimal` mapped to `low`) |
 | `--delay` | | `0.5` | Delay in seconds between trials (rate limit protection) |
 | `--mock` | | `False` | Run simulated trials offline |
 | `--seed` | | None | Random seed for reproducibility |

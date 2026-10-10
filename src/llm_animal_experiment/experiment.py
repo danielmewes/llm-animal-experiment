@@ -74,6 +74,8 @@ class ExperimentResult:
 
 def extract_thoughts(response: Any) -> str:
     """Return the concatenated reasoning-summary parts of a response, or ''."""
+    if isinstance(getattr(response, "thoughts", None), str):
+        return response.thoughts
     try:
         parts = response.candidates[0].content.parts or []
     except (AttributeError, IndexError, TypeError):
@@ -91,6 +93,58 @@ def get_genai_client(api_key: Optional[str] = None):
         )
     from google import genai
     return genai.Client(api_key=key)
+
+
+# Anthropic has no "minimal" effort level; "low" is its lowest.
+ANTHROPIC_EFFORT = {"minimal": "low", "low": "low", "medium": "medium", "high": "high"}
+ANTHROPIC_MAX_TOKENS = 16000
+
+
+def infer_provider(model: str) -> str:
+    return "anthropic" if model.lower().startswith("claude") else "gemini"
+
+
+def get_anthropic_client(api_key: Optional[str] = None):
+    """Initialize and return an anthropic Client."""
+    load_dotenv()
+    key = api_key or os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        raise ValueError(
+            "No Anthropic API key found. Please set ANTHROPIC_API_KEY in your environment or .env file."
+        )
+    import anthropic
+    return anthropic.Anthropic(api_key=key)
+
+
+@dataclass
+class ChatResponse:
+    text: str
+    thoughts: str = ""
+
+
+class AnthropicChat:
+    """Minimal multi-turn chat session over the Anthropic Messages API."""
+
+    def __init__(self, client: Any, model: str, thinking_level: Optional[str] = None):
+        self.client = client
+        self.model = model
+        self.messages: list[dict[str, Any]] = []
+        self.kwargs: dict[str, Any] = {"max_tokens": ANTHROPIC_MAX_TOKENS}
+        # Adaptive thinking: the model decides whether and how much to think, steered by
+        # effort. "summarized" is needed to get thinking text back (many models default
+        # to "omitted"). Models with thinking on by default accept this unchanged.
+        if thinking_level is not None:
+            self.kwargs["thinking"] = {"type": "adaptive", "display": "summarized"}
+            self.kwargs["output_config"] = {"effort": ANTHROPIC_EFFORT[thinking_level.lower()]}
+
+    def send_message(self, message: str) -> ChatResponse:
+        self.messages.append({"role": "user", "content": message})
+        resp = self.client.messages.create(model=self.model, messages=self.messages, **self.kwargs)
+        text = "".join(b.text for b in resp.content if b.type == "text")
+        thoughts = "\n".join(b.thinking for b in resp.content if b.type == "thinking" and b.thinking)
+        # Echo the full content (including thinking blocks) back on the next turn.
+        self.messages.append({"role": "assistant", "content": resp.content})
+        return ChatResponse(text=text, thoughts=thoughts)
 
 
 class MockLLMChat:
@@ -135,10 +189,10 @@ def run_single_trial(
     mock: bool = False,
     mock_animal: Optional[str] = None,
     mock_style: str = "standard",
-    temperature: Optional[float] = None,
     thinking_level: Optional[str] = None,
     set_expectations: bool = False,
     be_honest: bool = False,
+    provider: Optional[str] = None,
 ) -> TrialRecord:
     """
     Executes a single trial of the animal guessing experiment:
@@ -154,14 +208,14 @@ def run_single_trial(
     try:
         if mock:
             chat = MockLLMChat(target_animal=mock_animal, answer_style=mock_style)
+        elif (provider or infer_provider(model)) == "anthropic":
+            chat = AnthropicChat(client, model, thinking_level)
         else:
             from google.genai import types
             thinking_kwargs: dict[str, Any] = {"include_thoughts": True}
             if thinking_level is not None:
                 thinking_kwargs["thinking_level"] = thinking_level.upper()
             config_kwargs: dict[str, Any] = {"thinking_config": types.ThinkingConfig(**thinking_kwargs)}
-            if temperature is not None:
-                config_kwargs["temperature"] = temperature
             config = types.GenerateContentConfig(**config_kwargs)
             chat = client.chats.create(model=model, config=config)
 
@@ -242,12 +296,12 @@ def run_experiment(
     model: str = "gemini-3.8-flash",
     confidence_level: float = 0.95,
     api_key: Optional[str] = None,
-    temperature: Optional[float] = None,
     thinking_level: Optional[str] = None,
     set_expectations: bool = False,
     be_honest: bool = False,
     mock: bool = False,
     seed: Optional[int] = None,
+    provider: Optional[str] = None,
     delay_between_trials: float = 0.5,
     on_trial_complete: Optional[Callable[[TrialRecord], None]] = None,
 ) -> ExperimentResult:
@@ -259,7 +313,11 @@ def run_experiment(
 
     client = None
     if not mock:
-        client = get_genai_client(api_key=api_key)
+        provider = provider or infer_provider(model)
+        if provider == "anthropic":
+            client = get_anthropic_client(api_key=api_key)
+        else:
+            client = get_genai_client(api_key=api_key)
 
     trials: List[TrialRecord] = []
     yes_count = 0
@@ -272,10 +330,10 @@ def run_experiment(
             client=client,
             model=model,
             mock=mock,
-            temperature=temperature,
             thinking_level=thinking_level,
             set_expectations=set_expectations,
             be_honest=be_honest,
+            provider=provider,
         )
         trials.append(record)
 

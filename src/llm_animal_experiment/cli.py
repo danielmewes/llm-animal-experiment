@@ -19,7 +19,13 @@ def parse_args(args: Optional[list[str]] = None) -> argparse.Namespace:
         "--model", "-m",
         type=str,
         default="gemini-3.8-flash",
-        help="Gemini model to evaluate (default: gemini-3.8-flash)",
+        help="Model to evaluate; names starting with 'claude' use the Anthropic API (default: gemini-3.8-flash)",
+    )
+    parser.add_argument(
+        "--provider",
+        choices=["gemini", "anthropic"],
+        default=None,
+        help="API provider (default: inferred from the model name)",
     )
     parser.add_argument(
         "--confidence", "-c",
@@ -28,17 +34,11 @@ def parse_args(args: Optional[list[str]] = None) -> argparse.Namespace:
         help="Confidence level for the statistical hypothesis test (default: 0.95 for 95%% CI)",
     )
     parser.add_argument(
-        "--temperature", "-t",
-        type=float,
-        default=None,
-        help="Sampling temperature for the model (optional)",
-    )
-    parser.add_argument(
         "--thinking-level",
         type=str.lower,
         choices=["minimal", "low", "medium", "high"],
         default=None,
-        help="Thinking level for the model (optional; supported by Gemini 3 models)",
+        help="Thinking level for the model (optional; Gemini 3 thinking level, or for Claude models adaptive thinking with the matching effort; minimal maps to low)",
     )
     parser.add_argument(
         "--set-expectations",
@@ -71,7 +71,7 @@ def parse_args(args: Optional[list[str]] = None) -> argparse.Namespace:
         "--api-key",
         type=str,
         default=None,
-        help="Google Gemini API key (defaults to GEMINI_API_KEY from environment or .env)",
+        help="API key (defaults to GEMINI_API_KEY or ANTHROPIC_API_KEY from environment or .env, depending on provider)",
     )
     parser.add_argument(
         "--output", "-o",
@@ -95,8 +95,6 @@ def main() -> None:
     print(f"Model:            {args.model} {'(MOCK MODE)' if args.mock else ''}")
     print(f"Number of Trials: {args.trials}")
     print(f"Confidence Level: {args.confidence * 100:.1f}%")
-    if args.temperature is not None:
-        print(f"Temperature:      {args.temperature}")
     if args.thinking_level is not None:
         print(f"Thinking Level:   {args.thinking_level}")
     if args.set_expectations:
@@ -133,11 +131,11 @@ def main() -> None:
             model=args.model,
             confidence_level=args.confidence,
             api_key=args.api_key,
-            temperature=args.temperature,
             thinking_level=args.thinking_level,
             set_expectations=args.set_expectations,
             be_honest=args.be_honest,
             mock=args.mock,
+            provider=args.provider,
             seed=args.seed,
             delay_between_trials=args.delay,
             on_trial_complete=on_trial_complete,
