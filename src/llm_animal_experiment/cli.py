@@ -86,44 +86,54 @@ def one_line(text: str) -> str:
     return text.replace("\r", "").replace("\n", " ")
 
 
+def format_header(args: argparse.Namespace) -> str:
+    lines = [
+        "",
+        "=" * 65,
+        "      LLM ANIMAL GUESSING BEHAVIOR EXPERIMENT",
+        "=" * 65,
+        f"Model:            {args.model} {'(MOCK MODE)' if args.mock else ''}",
+        f"Number of Trials: {args.trials}",
+        f"Confidence Level: {args.confidence * 100:.1f}%",
+    ]
+    if args.thinking_level is not None:
+        lines.append(f"Thinking Level:   {args.thinking_level}")
+    if args.set_expectations:
+        lines.append("Set Expectations: yes")
+    if args.be_honest:
+        lines.append("Be Honest:        yes")
+    if args.seed is not None:
+        lines.append(f"Random Seed:      {args.seed}")
+    lines += ["-" * 65, "Starting trials...", ""]
+    return "\n".join(lines)
+
+
+def format_trial(record: TrialRecord, total: int) -> str:
+    if record.error:
+        return f"Trial {record.trial_id:>3}/{total}: ERROR -> {one_line(record.error)}"
+
+    lines = [f"Trial {record.trial_id:>3}/{total}: Turn 1 Response: \"{one_line(record.turn1_response)}\""]
+    if record.turn1_thoughts:
+        lines.append(f"   Turn 1 Reasoning: {one_line(record.turn1_thoughts)}")
+    lines.append(f"   Guessed '{record.guessed_animal}' -> Response: \"{one_line(record.turn2_response)}\" [{record.classification}]")
+    if record.turn2_thoughts:
+        lines.append(f"   Turn 2 Reasoning: {one_line(record.turn2_thoughts)}")
+    for fu in record.follow_ups:
+        lines.append(f"   Follow-up '{fu.guessed_animal}': \"{one_line(fu.response)}\" [{fu.classification}]")
+        if fu.thoughts:
+            lines.append(f"   Follow-up '{fu.guessed_animal}' Reasoning: {one_line(fu.thoughts)}")
+    if record.invalid_reason:
+        lines.append(f"   Marked INVALID: {record.invalid_reason}")
+    return "\n".join(lines)
+
+
 def main() -> None:
     args = parse_args()
 
-    print("\n" + "=" * 65)
-    print("      LLM ANIMAL GUESSING BEHAVIOR EXPERIMENT")
-    print("=" * 65)
-    print(f"Model:            {args.model} {'(MOCK MODE)' if args.mock else ''}")
-    print(f"Number of Trials: {args.trials}")
-    print(f"Confidence Level: {args.confidence * 100:.1f}%")
-    if args.thinking_level is not None:
-        print(f"Thinking Level:   {args.thinking_level}")
-    if args.set_expectations:
-        print("Set Expectations: yes")
-    if args.be_honest:
-        print("Be Honest:        yes")
-    if args.seed is not None:
-        print(f"Random Seed:      {args.seed}")
-    print("-" * 65)
-    print("Starting trials...\n")
+    print(format_header(args))
 
     def on_trial_complete(record: TrialRecord) -> None:
-        if record.error:
-            print(f"Trial {record.trial_id:>3}/{args.trials}: ERROR -> {one_line(record.error)}")
-            return
-
-        status_tag = f"[{record.classification}]"
-        print(f"Trial {record.trial_id:>3}/{args.trials}: Turn 1 Response: \"{one_line(record.turn1_response)}\"")
-        if record.turn1_thoughts:
-            print(f"   Turn 1 Reasoning: {one_line(record.turn1_thoughts)}")
-        print(f"   Guessed '{record.guessed_animal}' -> Response: \"{one_line(record.turn2_response)}\" {status_tag}")
-        if record.turn2_thoughts:
-            print(f"   Turn 2 Reasoning: {one_line(record.turn2_thoughts)}")
-        for fu in record.follow_ups:
-            print(f"   Follow-up '{fu.guessed_animal}': \"{one_line(fu.response)}\" [{fu.classification}]")
-            if fu.thoughts:
-                print(f"   Follow-up '{fu.guessed_animal}' Reasoning: {one_line(fu.thoughts)}")
-        if record.invalid_reason:
-            print(f"   Marked INVALID: {record.invalid_reason}")
+        print(format_trial(record, args.trials))
 
     try:
         result = run_experiment(
