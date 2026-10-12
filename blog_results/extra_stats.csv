@@ -1,0 +1,23 @@
+model,thinking_level,prompt,total_trials,valid_trials,invalid_trials,yes_count,no_count,yes_pct,no_pct,p95_p_value,p95_null_hypothesis,p99_p_value,p99_null_hypothesis,animal_trials_resolved,elephant_pct,fish_pct,bee_pct
+claude-haiku-5-5,low,default,50,50,0,17,33,34.0,66.0,1.0,not rejected,1.0,not rejected,50,44.0,28.0,28.0
+claude-haiku-5-5,low,expectations,50,50,0,5,45,10.0,90.0,0.000231,REJECTED,0.000231,REJECTED,50,26.0,36.0,38.0
+claude-haiku-5-5,medium,default,50,50,0,8,42,16.0,84.0,0.009951,REJECTED,0.009951,REJECTED,50,18.0,38.0,44.0
+claude-haiku-5-5,medium,expectations,50,50,0,3,47,6.0,94.0,7e-06,REJECTED,7e-06,REJECTED,50,32.0,40.0,28.0
+claude-opus-5-5,low,default,50,50,0,5,45,10.0,90.0,0.000231,REJECTED,0.000231,REJECTED,50,24.0,4.0,72.0
+claude-opus-5-5,low,expectations,50,49,1,0,49,0.0,100.0,0.0,REJECTED,0.0,REJECTED,49,26.5,16.3,57.1
+claude-opus-5-5,medium,default,50,50,0,5,45,10.0,90.0,0.000231,REJECTED,0.000231,REJECTED,50,24.0,2.0,74.0
+claude-opus-5-5,medium,expectations,50,49,1,2,47,4.1,95.9,1e-06,REJECTED,1e-06,REJECTED,49,18.4,26.5,55.1
+claude-sonnet-5-5,low,default,50,50,0,0,50,0.0,100.0,0.0,REJECTED,0.0,REJECTED,50,26.0,26.0,48.0
+claude-sonnet-5-5,low,expectations,50,49,1,0,49,0.0,100.0,0.0,REJECTED,0.0,REJECTED,49,22.4,24.5,53.1
+claude-sonnet-5-5,medium,default,50,50,0,0,50,0.0,100.0,0.0,REJECTED,0.0,REJECTED,50,22.0,22.0,56.0
+claude-sonnet-5-5,medium,expectations,50,50,0,0,50,0.0,100.0,0.0,REJECTED,0.0,REJECTED,50,26.0,20.0,54.0
+gemini-3.5-flash-lite,low,default,50,48,2,20,28,41.7,58.3,0.223502,not rejected,0.223502,not rejected,48,27.1,0.0,72.9
+gemini-3.5-flash-lite,low,expectations,50,49,1,18,31,36.7,63.3,0.650051,not rejected,0.650051,not rejected,49,10.2,0.0,89.8
+gemini-3.5-flash-lite,medium,default,50,50,0,21,29,42.0,58.0,0.229452,not rejected,0.229452,not rejected,50,42.0,0.0,58.0
+gemini-3.5-flash-lite,medium,expectations,50,50,0,15,35,30.0,70.0,0.656336,not rejected,0.656336,not rejected,50,32.0,4.0,64.0
+gemini-3.5-flash-lite,minimal,default,50,50,0,6,44,12.0,88.0,0.000817,REJECTED,0.000817,REJECTED,50,26.0,22.0,52.0
+gemini-3.5-flash-lite,minimal,expectations,50,49,1,2,47,4.1,95.9,1e-06,REJECTED,1e-06,REJECTED,49,38.8,32.7,28.6
+gemini-3.8-flash,low,default,50,50,0,17,33,34.0,66.0,1.0,not rejected,1.0,not rejected,50,34.0,2.0,64.0
+gemini-3.8-flash,low,expectations,50,50,0,0,50,0.0,100.0,0.0,REJECTED,0.0,REJECTED,50,28.0,36.0,36.0
+gemini-3.8-flash,medium,default,50,50,0,17,33,34.0,66.0,1.0,not rejected,1.0,not rejected,50,26.0,0.0,74.0
+gemini-3.8-flash,medium,expectations,50,50,0,14,36,28.0,72.0,0.457652,not rejected,0.457652,not rejected,50,22.0,6.0,72.0

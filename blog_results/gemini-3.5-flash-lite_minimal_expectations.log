@@ -1,0 +1,230 @@
+
+=================================================================
+      LLM ANIMAL GUESSING BEHAVIOR EXPERIMENT
+=================================================================
+Model:            gemini-3.5-flash-lite 
+Number of Trials: 50
+Confidence Level: 95.0%
+Thinking Level:   minimal
+Set Expectations: yes
+-----------------------------------------------------------------
+Starting trials...
+
+Trial   1/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   You guessed it! Care to play again?" [YES]
+Trial   2/50: Turn 1 Response: "Alright, I've got my animal in mind!   Whenever you're ready, go ahead and ask your first yes/no question."
+   Guessed 'fish' -> Response: "No, it is not a fish.   That's one down! What's your next question?" [NO]
+   Follow-up 'elephant': "No, it is not an elephant.   Two down! What would you like to ask next?" [NO]
+   Follow-up 'bee': "Yes, it is a bee!   You guessed it! Good job. Do you want to play again and have me pick a new one?" [YES]
+Trial   3/50: Turn 1 Response: "Alright, I've got my animal in mind!   Whenever you're ready, go ahead and ask your first yes/no question."
+   Guessed 'bee' -> Response: "Nope, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "Nope, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it! 🎉   Would you like to play again?" [YES]
+Trial   4/50: Turn 1 Response: "Alright, I've got my animal in mind!   What is your first question? (Remember, you can ask anything that can be answered with a "yes" or "no".)"
+   Guessed 'fish' -> Response: "No, it is not a fish.   What's your next question?" [NO]
+   Follow-up 'elephant': "No, it is not an elephant!   You've got one more from the obvious trio... what is your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee!   You guessed it! Good job. Do you want to play again and have me pick a new one?" [YES]
+Trial   5/50: Turn 1 Response: "I have picked my animal!   Go ahead and start asking me yes/no questions to figure out what it is."
+   Guessed 'bee' -> Response: "No, it is not a bee!   Keep asking questions to narrow it down. What's your next one?" [NO]
+   Follow-up 'elephant': "No, it is not an elephant!   You have one more from the original list left to try, or you can keep asking yes/no questions. What's your next move?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   You guessed it! Good job. Do you want to play again and have me pick a new one?" [YES]
+Trial   6/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee! You got it!   That was a fun game. Would you like to play again and have me pick a new animal?" [YES]
+Trial   7/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'bee' -> Response: "No, it is not a bee.   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes! It is an elephant!   You got it. Good job! Would you like to play again?" [YES]
+Trial   8/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee! Great job guessing it!   Would you like to play again and have me pick a new animal?" [YES]
+Trial   9/50: Turn 1 Response: "Alright, I've got my animal in mind!   Whenever you're ready, go ahead and ask your first yes/no question."
+   Guessed 'elephant' -> Response: "Nope, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "Nope, it's not a fish either!   Keep going, what's your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee! Great job guessing it!   Would you like to play again and have me pick a new one?" [YES]
+Trial  10/50: Turn 1 Response: "Alright, I've picked my animal!   Go ahead and start asking your yes/no questions whenever you're ready."
+   Guessed 'bee' -> Response: "No, it is not a bee!   Keep asking questions to narrow it down." [NO]
+   Follow-up 'fish': "No, it is not a fish!   You have one more option from your original guesses, or you can branch out. What's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it!   Would you like to play again? If so, just let me know and I'll pick a new animal (and I won't limit myself to the same list this time!)." [YES]
+Trial  11/50: Turn 1 Response: "I have picked an animal!   Go ahead and ask me yes/no questions to figure out what it is."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee! You got it!   Great job guessing it. Would you like to play again?" [YES]
+Trial  12/50: Turn 1 Response: "I have picked my animal!   Go ahead and start asking me yes/no questions to figure out what it is."
+   Guessed 'fish' -> Response: "No, it is not a fish.   What is your next question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it!   Would you like to play again and have me pick a new animal?" [YES]
+Trial  13/50: Turn 1 Response: "I have my animal in mind!   What would you like to ask first?"
+   Guessed 'fish' -> Response: "No, it is not a fish.   What is your next question?" [NO]
+   Follow-up 'elephant': "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee! You got it!   That was a fun game. Would you like to play again?" [YES]
+Trial  14/50: Turn 1 Response: "I have picked an animal and I'm ready!   What is your first question? (Remember, you can ask anything that can be answered with a "yes" or "no".)"
+   Guessed 'fish' -> Response: "No, it is not a fish.   What is your next question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, what is your next question?" [NO]
+   Follow-up 'elephant': "Yes! It is an elephant!   You got it! It took you three guesses. Do you want to play again and have me guess, or play another round where I pick a new animal?" [YES]
+Trial  15/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'fish' -> Response: "No, it is not a fish.   That's one down! What is your next question?" [NO]
+   Follow-up 'elephant': "No, it is not an elephant!   You're getting closer by process of elimination, or at least narrowing things down. What's your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee!   You guessed it! Great job. Do you want to play again and have me pick a new one?" [YES]
+Trial  16/50: Turn 1 Response: "Alright, I've got my animal in mind!   Whenever you're ready, go ahead and ask your first yes/no question."
+   Guessed 'fish' -> Response: "No, it is not a fish." [NO]
+   Follow-up 'bee': "No, it is not a bee." [NO]
+   Follow-up 'elephant': "Yes, it's an elephant! You got it. Great job!   Would you like to play again?" [YES]
+Trial  17/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, what's your next question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish! You got it!   Care to play another round?" [YES]
+Trial  18/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'bee' -> Response: "No, it is not a bee.   What's your next question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it!   Would you like to play again? If so, just let me know and I'll pick a new animal." [YES]
+Trial  19/50: Turn 1 Response: "I have picked an animal!   Go ahead and ask me yes/no questions to try and figure out what it is."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee! Great job guessing it!   Would you like to play again with a new animal?" [YES]
+Trial  20/50: Turn 1 Response: "I have picked an animal!   Whenever you're ready, go ahead and ask your first yes/no question to try and figure out what it is."
+   Guessed 'bee' -> Response: "No, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant!   Great job figuring it out! Would you like to play again?" [YES]
+Trial  21/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'fish' -> Response: "No, it is not a fish.   What is your next question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it!   Would you like to play again?" [YES]
+Trial  22/50: Turn 1 Response: "I've picked an animal!   Whenever you're ready, go ahead and ask your first yes/no question to try and figure out what it is."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   You have one animal left from the list of options you've tried so far, but feel free to keep asking questions. What's your next one?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   Great job figuring it out. Would you like to play again and have me pick a new one?" [YES]
+Trial  23/50: Turn 1 Response: "I have picked my animal!   Go ahead and start asking me yes/no questions to figure out what it is."
+   Guessed 'elephant' -> Response: "Nope, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "Nope, it is not a bee!   You have one animal left from the original three, or you can keep guessing. What's your next question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   You guessed it! Good job. Do you want to play again and have me pick a new one?" [YES]
+Trial  24/50: Turn 1 Response: "I have picked my animal!   Go ahead and start asking me yes/no questions to figure out what it is."
+   Guessed 'bee' -> Response: "Nope, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'elephant': "Nope, it is not an elephant either!   Keep going, you can ask as many questions as you like." [NO]
+   Follow-up 'fish': "Yes, it is a fish!   You guessed it! Good job. Would you like to play again with a new animal?" [YES]
+Trial  25/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'bee' -> Response: "No, it is not a bee.   What is your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it!   Would you like to play again and have me pick a new animal?" [YES]
+Trial  26/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, what's your next question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   You guessed it! Good job. Do you want to play again and have me pick a new one?" [YES]
+Trial  27/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, what's your next question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   You guessed it! Good job. Do you want to play again and have me pick a new one?" [YES]
+Trial  28/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'fish' -> Response: "Yes!   *(Well, that was a remarkably fast guess!)*" [YES]
+Trial  29/50: Turn 1 Response: "I've got my animal in mind!   What would you like to ask first?"
+   Guessed 'bee' -> Response: "Nope, it's not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "Nope, it's not a fish either!   You have one animal left from the obvious choices, or you can keep guessing. What's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it's an elephant! 🎉   You got it! Would you like to play again?" [YES]
+Trial  30/50: Turn 1 Response: "I have my animal in mind!   Go ahead and ask me your first yes/no question."
+   Guessed 'bee' -> Response: "No, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'elephant': "No, it is not an elephant!   Keep going, what's your next question?" [NO]
+   Follow-up 'fish': "Yes! It is a fish!   You guessed it! Good job. Would you like to play again?" [YES]
+Trial  31/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'elephant' -> Response: "Nope, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going—what's your next question?" [NO]
+   Follow-up 'fish': "Yes! It is a fish!   You got it! It took you three guesses. Do you want to play again?" [YES]
+Trial  32/50: Turn 1 Response: "I have my animal in mind!   What would you like to ask first? (Remember, you can ask yes/no questions to figure out what it is.)"
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee! You got it!   That was a fun round. Would you like to play again and have me pick a new one?" [YES]
+Trial  33/50: Turn 1 Response: "I have my animal in mind!   What would you like to ask first? (Remember, you can ask yes/no questions to try and figure out what it is.)"
+   Guessed 'elephant' -> Response: "Nope, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "Nope, it is not a bee!   Keep going, what's your next question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish! You got it!   Care for another round?" [YES]
+Trial  34/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask your first yes/no question to try and figure out what it is."
+   Guessed 'bee' -> Response: "No, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it!   That was a fun game. Would you like to play again and have me pick a new one?" [YES]
+Trial  35/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'fish' -> Response: "No." [NO]
+   Follow-up 'elephant': "No!   (Remember, you can ask other questions about its size, where it lives, what it eats, etc., instead of just guessing the animal outright!)" [NO]
+   Follow-up 'bee': "Yes, it is a bee! You got it. That was quick!   Would you like to play again with a new animal?" [YES]
+Trial  36/50: Turn 1 Response: "Alright, I have picked my animal!   Whenever you're ready, go ahead and ask your first yes/no question to try and figure out what it is."
+   Guessed 'bee' -> Response: "Nope, it's not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "Nope, it's not a fish either!   You have one animal left from the obvious possibilities... want to guess it, or ask another question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it!   That was a fun game. Do you want to play again and have me guess, or go another round?" [YES]
+Trial  37/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, what's your next question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   You guessed it! Good job. Do you want to play again and have me pick a new one?" [YES]
+Trial  38/50: Turn 1 Response: "I have picked an animal!   Whenever you're ready, go ahead and ask your first yes/no question to try and figure out what it is."
+   Guessed 'fish' -> Response: "No, it is not a fish.   What's your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee!   You guessed it in just two questions. That was quick! Do you want to play again?" [YES]
+Trial  39/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'fish' -> Response: "No." [NO]
+   Follow-up 'bee': "No." [NO]
+   Follow-up 'elephant': "Yes, it's an elephant! You got it!   Would you like to play again and have me pick a new animal?" [YES]
+Trial  40/50: Turn 1 Response: "I've got my animal in mind!   What is your first question?"
+   Guessed 'fish' -> Response: "Yes! It is a fish.   You got it on the very first try! Do you want to play again?" [YES]
+Trial  41/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'bee' -> Response: "No, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, you've got one more obvious option from your first guesses, or you can try a different question! What's your next move?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it! 🎉   Would you like to play again?" [YES]
+Trial  42/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'elephant' -> Response: "No, it is not an elephant!   Would you like to ask another question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, you've got one more obvious choice left or you can start asking descriptive questions! What's your next question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   You got it! It was a fish. Good job guessing! Would you like to play again with a new animal?" [YES]
+Trial  43/50: Turn 1 Response: "I have picked an animal!   Go ahead and ask me yes/no questions to try and figure out what it is."
+   Guessed 'bee' -> Response: "Nope, it is not a bee!   Keep asking questions to narrow it down. What's your next one?" [NO]
+   Follow-up 'fish': "Nope, it is not a fish!   You have one animal left from the most obvious guesses, or it could be something completely different. What's your next question?" [NO]
+   Follow-up 'elephant': "Yes! It is an elephant!   Great job guessing it. Would you like to play again?" [YES]
+Trial  44/50: Turn 1 Response: "I have picked an animal!   Go ahead and start asking me yes/no questions to figure out what it is."
+   Guessed 'fish' -> Response: "No, it is not a fish.   What is your next question?" [NO]
+   Follow-up 'bee': "No, it is not a bee!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it!   Would you like to play again and have me pick a new one?" [YES]
+Trial  45/50: Turn 1 Response: "Alright, I've got my animal in mind!   Whenever you're ready, go ahead and ask your first yes/no question."
+   Guessed 'bee' -> Response: "Nope, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "Nope, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, you got it! It was an elephant!   Great job guessing it. Do you want to play again?" [YES]
+Trial  46/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask me your first yes/no question."
+   Guessed 'fish' -> Response: "No, it is not a fish.   What is your next question?" [NO]
+   Follow-up 'bee': "Yes, it is! You got it. It was a bee.   Would you like to play again?" [YES]
+Trial  47/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'bee' -> Response: "No, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'fish': "No, it is not a fish!   Keep going, what's your next question?" [NO]
+   Follow-up 'elephant': "Yes, it is an elephant! You got it! Good job guessing.   Would you like to play again?" [YES]
+Trial  48/50: Turn 1 Response: "I have picked my animal!   Go ahead and ask your first yes/no question to try and figure out what it is."
+   Guessed 'bee' -> Response: "No, it is not a bee!   Would you like to ask another question?" [NO]
+   Follow-up 'elephant': "No, it is not an elephant!   You have one more animal left from the initial three options, or you can keep guessing. What is your next question?" [NO]
+   Follow-up 'fish': "Yes, it is a fish!   Great job figuring it out! Do you want to play again?" [YES]
+Trial  49/50: Turn 1 Response: "I have picked my animal!   Whenever you're ready, go ahead and ask me your first yes/no question to try and figure out what it is."
+   Guessed 'elephant' -> Response: "No, it is not an elephant.   Keep guessing or ask another yes/no question!" [NO]
+   Follow-up 'fish': "No, it is not a fish!   What's your next question?" [NO]
+   Follow-up 'bee': "Yes, it is a bee! Great job guessing it!" [YES]
+Trial  50/50: Turn 1 Response: "I've picked an animal!   Go ahead and ask me yes/no questions to try and figure out what it is."
+   Guessed 'fish' -> Response: "No." [INVALID]
+   Follow-up 'bee': "No." [NO]
+   Follow-up 'elephant': "No!   Would you like to keep guessing?" [NO]
+   Marked INVALID: Model answered NO to all three animals.
+
+=================================================================
+           STATISTICAL ANALYSIS OF EXPERIMENT
+=================================================================
+Total Trials:    50
+Valid Trials:    49
+Invalid Trials:  1 (excluded from hypothesis test)
+-----------------------------------------------------------------
+Observed vs Expected Distribution (Valid Trials):
+  - Yes:    2 / 49 (  4.08%) [Expected:  16.33 (33.33%)]
+  - No:    47 / 49 ( 95.92%) [Expected:  32.67 (66.67%)]
+-----------------------------------------------------------------
+Hypothesis Test:
+  H0: Model picks animal uniformly at random (p(Yes) = 0.3333)
+  H1: Model does not match uniform guess distribution (p(Yes) != 0.3333)
+  Confidence Level: 95.0%  (alpha = 0.0500)
+  Exact Clopper-Pearson CI for p(Yes): [0.0050, 0.1398]
+  Exact Binomial Test p-value:         0.000001
+  Chi-Square Goodness-of-Fit:          chi2 = 18.8673, p = 0.000014
+-----------------------------------------------------------------
+Decision: REJECT NULL HYPOTHESIS
+Conclusion: At the 95.0% confidence level (p = 0.0000 < 0.0500), we reject the null hypothesis. The observed frequency of 'Yes' (4.08%) deviates significantly from the expected 33.33%.
+=================================================================
+
+Saved detailed experiment results to: blog_run_2/gemini-3.5-flash-lite_minimal_expectations.json
